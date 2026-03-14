@@ -103,61 +103,49 @@ These alerts appear in the **Threat Hunting → Events** dashboard.
 # Screenshots
 
 ## Wazuh Dashboard
-
 Shows overall SIEM monitoring and security modules.
 
-```
-screenshots/wazuh-dashboard.png
-```
+![Wazuh Dashboard](screenshots/wazuh-dashboard.png)
 
 ---
 
 ## Agent Deployment
-
 Deploying an endpoint agent from the Wazuh dashboard.
 
-```
-screenshots/deploy-agent.png
-```
+![Agent Deployment](screenshots/deploy-agent.png)
 
 ---
 
 ## Agent Connected
-
 Endpoint successfully connected to the SIEM server.
 
-```
-screenshots/agent-connected.png
-```
+![Agent Connected](screenshots/agent-connected.png)
 
 ---
 
 ## Threat Hunting Dashboard
-
 Security analytics including alert trends and MITRE ATT&CK mapping.
 
-```
-screenshots/threat-hunting-dashboard.png
-```
+![Threat Hunting Dashboard](screenshots/threat-hunting-dashboard.png)
 
 ---
 
 ## Security Alerts
-
 Detected attack events in the Wazuh Threat Hunting dashboard.
 
-```
-screenshots/security-alerts.png
-```
+![Security Alerts](screenshots/security-alerts.png)
 
 ---
 
-Perfect — we’ll add **Change #2 (Detection Rules)** and **Change #3 (SOC Investigation)** directly into your README.
-You can paste these **exact sections** under your **Security Alerts section**.
+## Attack Simulation
+SSH brute force attempts and network scanning used to generate alerts.
+
+![Attack Simulation](screenshots/attack-simulation.png)
+
 
 ---
 
-# 🔎 Detection Rules Triggered
+# Detection Rules Triggered
 
 During the attack simulation, the Wazuh SIEM detected multiple security events based on predefined detection rules.
 
@@ -265,7 +253,7 @@ screenshots/attack-simulation.png
 The full installation process can be found here:
 
 ```
-setup-guide/installation-steps.md
+[View the full setup guide](setup-guide/installation-steps.md)
 ```
 
 This includes:
