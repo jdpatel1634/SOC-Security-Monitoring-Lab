@@ -1,31 +1,47 @@
-# SOC-Security-Monitoring-Lab
+# SOC Security Monitoring Lab (Wazuh SIEM)
 
 ## Overview
-This project demonstrates a small home Security Operations Center (SOC) environment for monitoring and investigating suspicious activity using Wazuh and Windows telemetry.
+This project demonstrates a Security Operations Center (SOC) monitoring environment using Wazuh SIEM. The lab collects logs from Linux endpoints and detects suspicious activities such as SSH brute-force attempts and network scanning.
 
-## Objectives
-- Collect and analyze security logs from a Windows endpoint
-- Monitor alerts in a centralized dashboard
-- Investigate suspicious activity such as failed logins and port scans
+## Architecture
 
-## Lab Architecture
-Windows VM with Wazuh Agent + Sysmon -> Wazuh Server (Ubuntu)
+Ubuntu Server (Wazuh Manager + Dashboard)
+|
+|---- Ubuntu Endpoint (Wazuh Agent)
 
 ## Tools Used
-- Wazuh
-- Windows Event Logs
-- Sysmon
-- Ubuntu
-- Windows
+- Wazuh SIEM
+- Ubuntu Linux
 - VirtualBox
+- Nmap
+- SSH
 
-## Scenarios
-- Failed login attempts
-- Port scanning
-- Suspicious process activity
+## Security Scenarios Simulated
+1. Network reconnaissance using Nmap
+2. SSH brute-force login attempts
+3. Log monitoring and alert detection
 
-## Skills Demonstrated
-- Security monitoring
-- Log analysis
-- Alert investigation
-- Windows event analysis
+## Screenshots
+
+### Wazuh Dashboard
+![Dashboard](screenshots/wazuh-dashboard.png)
+
+### Agent Deployment
+![Agent](screenshots/deploy-agent.png)
+
+### Agent Connected
+![Agent Connected](screenshots/agent-connected.png)
+
+### Security Alerts Detected
+![Alerts](screenshots/security-alerts.png)
+
+## Demo
+Watch the lab demonstration:
+
+demo/soc-demo.mp4
+
+## Learning Outcomes
+- Security monitoring using SIEM
+- Endpoint log collection
+- Incident detection
+- Threat investigation workflow
