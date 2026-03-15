@@ -243,7 +243,8 @@ SOC Analyst Investigation
 SSH brute force attempts and network scanning used to generate alerts.
 
 ```
-screenshots/attack-simulation.png
+![Attack Simulation](screenshots/attack-simulation.png)
+
 ```
 
 ---
@@ -253,7 +254,7 @@ screenshots/attack-simulation.png
 The full installation process can be found here:
 
 ```
-[View the full setup guide](setup-guide/installation-steps.md)
+![View the full setup guide](setup-guide/installation-steps.md)
 ```
 
 This includes:
