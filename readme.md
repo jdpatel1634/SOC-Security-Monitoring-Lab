@@ -1,4 +1,3 @@
-
 # SOC Security Monitoring Lab (Wazuh SIEM)
 
 A hands-on **Security Operations Center (SOC) lab** built using **Wazuh SIEM** to monitor endpoints, detect suspicious activity, and analyze security alerts.
@@ -11,12 +10,12 @@ This project demonstrates how security analysts monitor systems, detect attacks,
 
 In this lab environment:
 
-* A **Wazuh SIEM server** collects logs from monitored systems.
-* An **Ubuntu endpoint** runs the Wazuh agent.
-* Security events are generated through **attack simulations**.
-* Alerts are analyzed in the **Wazuh dashboard**.
+* A **Wazuh SIEM server** collects logs from monitored systems
+* An **Ubuntu endpoint** runs the Wazuh agent
+* Security events are generated through **attack simulations**
+* Alerts are analyzed in the **Wazuh dashboard**
 
-The lab replicates a simplified **SOC monitoring environment** used in real-world security operations.
+The lab replicates a simplified **SOC monitoring environment used in real-world security operations**.
 
 ---
 
@@ -36,14 +35,18 @@ Wazuh Dashboard
 (Security Monitoring & Threat Detection)
 ```
 
+## Architecture Diagram
+
+![SOC Architecture](architecture/soc-architecture.png)
+
 ---
 
 # Tools & Technologies
 
 | Tool          | Purpose                           |
 | ------------- | --------------------------------- |
-| Wazuh         | SIEM & security monitoring        |
-| Ubuntu Server | Wazuh server                      |
+| Wazuh         | SIEM and security monitoring      |
+| Ubuntu Server | Wazuh manager                     |
 | Ubuntu VM     | Monitored endpoint                |
 | VirtualBox    | Virtual lab environment           |
 | SSH           | Attack simulation                 |
@@ -66,9 +69,9 @@ Wazuh Dashboard
 
 # Attack Simulation
 
-To generate security alerts, the following attacks were simulated:
+To generate security alerts, the following attacks were simulated.
 
-### SSH Brute Force Attempts
+## SSH Brute Force Attempts
 
 ```
 ssh fakeuser@localhost
@@ -76,7 +79,9 @@ ssh fakeuser@localhost
 
 Multiple login attempts trigger authentication alerts.
 
-### Network Reconnaissance (Nmap Scan)
+---
+
+## Network Reconnaissance (Nmap Scan)
 
 ```
 sudo nmap -sS 192.168.0.22
@@ -103,6 +108,7 @@ These alerts appear in the **Threat Hunting → Events** dashboard.
 # Screenshots
 
 ## Wazuh Dashboard
+
 Shows overall SIEM monitoring and security modules.
 
 ![Wazuh Dashboard](screenshots/wazuh-dashboard.png)
@@ -110,6 +116,7 @@ Shows overall SIEM monitoring and security modules.
 ---
 
 ## Agent Deployment
+
 Deploying an endpoint agent from the Wazuh dashboard.
 
 ![Agent Deployment](screenshots/deploy-agent.png)
@@ -117,6 +124,7 @@ Deploying an endpoint agent from the Wazuh dashboard.
 ---
 
 ## Agent Connected
+
 Endpoint successfully connected to the SIEM server.
 
 ![Agent Connected](screenshots/agent-connected.png)
@@ -124,6 +132,7 @@ Endpoint successfully connected to the SIEM server.
 ---
 
 ## Threat Hunting Dashboard
+
 Security analytics including alert trends and MITRE ATT&CK mapping.
 
 ![Threat Hunting Dashboard](screenshots/threat-hunting-dashboard.png)
@@ -131,6 +140,7 @@ Security analytics including alert trends and MITRE ATT&CK mapping.
 ---
 
 ## Security Alerts
+
 Detected attack events in the Wazuh Threat Hunting dashboard.
 
 ![Security Alerts](screenshots/security-alerts.png)
@@ -138,10 +148,10 @@ Detected attack events in the Wazuh Threat Hunting dashboard.
 ---
 
 ## Attack Simulation
+
 SSH brute force attempts and network scanning used to generate alerts.
 
 ![Attack Simulation](screenshots/attack-simulation.png)
-
 
 ---
 
@@ -156,8 +166,6 @@ During the attack simulation, the Wazuh SIEM detected multiple security events b
 | 5503    | PAM authentication failure                  | Medium   |
 | 2502    | Multiple failed login attempts detected     | High     |
 | 5402    | Successful sudo privilege escalation        | Low      |
-
-These rules are triggered when suspicious authentication behavior is detected on the monitored endpoint.
 
 Example events detected:
 
@@ -174,17 +182,15 @@ These alerts were generated when multiple SSH login attempts were simulated on t
 
 When the alerts were generated, the activity was investigated using the **Wazuh Threat Hunting dashboard**.
 
-The following investigation steps were performed:
-
-### 1. Identify Suspicious Activity
+## 1. Identify Suspicious Activity
 
 Security alerts showed multiple SSH login attempts using a **non-existent user account**, which is a common indicator of brute force attacks.
 
 ---
 
-### 2. Review Authentication Logs
+## 2. Review Authentication Logs
 
-Authentication events were analyzed from the endpoint logs collected by the Wazuh agent.
+Authentication events were analyzed from logs collected by the Wazuh agent.
 
 Observed events included:
 
@@ -194,33 +200,31 @@ Observed events included:
 
 ---
 
-### 3. Analyze Event Patterns
+## 3. Analyze Event Patterns
 
 The alerts showed a **pattern of repeated login attempts**, confirming a brute force authentication attack.
 
 ---
 
-### 4. Map Activity to MITRE ATT&CK Framework
+## 4. Map Activity to MITRE ATT&CK Framework
 
-| Technique | Description                         |
-| --------- | ----------------------------------- |
-| T1110     | Brute Force authentication attempts |
-| T1078     | Valid Accounts                      |
-| T1021     | Remote Services                     |
+| Technique | Description     |
+| --------- | --------------- |
+| T1110     | Brute Force     |
+| T1078     | Valid Accounts  |
+| T1021     | Remote Services |
 
-Mapping alerts to MITRE ATT&CK techniques helps security analysts understand attacker behavior.
+Mapping alerts to MITRE ATT&CK techniques helps analysts understand attacker behavior.
 
 ---
 
-### 5. Confirm Security Detection
+## 5. Confirm Security Detection
 
 The attack simulation successfully triggered alerts in the SIEM dashboard, demonstrating how a SOC analyst can detect and investigate authentication-based attacks.
 
 ---
 
 # SOC Monitoring Workflow
-
-The monitoring process followed this workflow:
 
 ```
 Attack Simulation
@@ -238,26 +242,13 @@ SOC Analyst Investigation
 
 ---
 
-## Attack Simulation
-
-SSH brute force attempts and network scanning used to generate alerts.
-
-```
-![Attack Simulation](screenshots/attack-simulation.png)
-
-```
-
----
-
 # Lab Setup Guide
 
-The full installation process can be found here:
+Full installation steps can be found here:
 
-```
-![View the full setup guide](setup-guide/installation-steps.md)
-```
+[View Setup Guide](setup-guide/installation-steps.md)
 
-This includes:
+The guide includes:
 
 * Installing Wazuh
 * Deploying agents
@@ -271,7 +262,7 @@ This includes:
 Through this lab, I gained experience with:
 
 * Security Information and Event Management (SIEM)
-* Security event monitoring
+* Security monitoring and alert analysis
 * Threat detection
 * Log analysis
 * SOC workflows
@@ -281,11 +272,11 @@ Through this lab, I gained experience with:
 
 # Future Improvements
 
-Potential enhancements to this lab include:
+Potential improvements for this project include:
 
 * Adding Windows endpoints
 * Integrating Suricata IDS
-* Creating custom detection rules
+* Creating custom Wazuh detection rules
 * Automating attack simulations
 * Expanding threat detection scenarios
 
@@ -318,4 +309,4 @@ soc-security-monitoring-lab
 
 # Final Result
 
-This project demonstrates a **working SOC monitoring environment capable of detecting simulated attacks and analyzing security events using Wazuh SIEM.**
+This project demonstrates a **working SOC monitoring environment capable of detecting simulated attacks and analyzing security events using Wazuh SIEM**.
